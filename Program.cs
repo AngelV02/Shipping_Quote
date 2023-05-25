@@ -37,7 +37,14 @@ namespace Shipping_Quote
             // Calculate the volume of the package
             double volume = width * height * length;
 
-        
+            // Check if the dimensions total exceeds the limit
+            double dimensionsTotal = width + height + length;
+            if (dimensionsTotal > 50)
+            {
+                Console.WriteLine("Package too big to be shipped via Package Express.");
+                return; // End the program
+            }
+
             // Calculate the quote
             double quote = (volume * weight) / 100;
 
